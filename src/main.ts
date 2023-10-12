@@ -75,24 +75,10 @@ function CheckGameOver() {
       window.getComputedStyle(bird).getPropertyValue("left")
     );
 
-    console.log(window.getComputedStyle(cactus));
+    console.log(cactus?.style.animationDuration);
 
-    //detect cactus collision
-    if (dinoTop >= 150 && Math.abs(cactusleft) < 7) {
-      //end game
-      console.log("player died!");
-      SetText("Final Score: " + score + "! Click To Play Again!");
-      gameOver = true;
-
-      //reset player
-      RemoveJump();
-
-      //reset cactus
-      RemoveObstacles();
-    }
-
-    //detect bird collision
-    if (dinoTop <= 55 && Math.abs(birdleft) < 11) {
+    //detect cactus collision and detect bird collision
+    if ((dinoTop >= 150 && Math.abs(cactusleft) < 7) ||(dinoTop <= 55 && Math.abs(birdleft) < 11)) {
       //end game
       console.log("player died!");
       SetText("Final Score: " + score + "! Click To Play Again!");
