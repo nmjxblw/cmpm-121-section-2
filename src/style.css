@@ -76,7 +76,7 @@
 
 .cactusMove
 {
-  animation: cactusMoveAnimation 2.5s linear infinite;
+  animation: cactusMoveAnimation 2.5s cubic-bezier(0, 0, 1, 1) infinite;
 }
 
 @keyframes cactusMoveAnimation

@@ -12,7 +12,6 @@ SetText("click to start!");
 
 let isJumping = false;
 let gameOver = true;
-let speed: number = 0;
 
 //Jumps should begin the moment the players mouse button goes down, not when they let it up
 document.addEventListener("mousedown", () => jump());
@@ -62,23 +61,24 @@ function CheckGameOver() {
   if (gameOver == false && dino != null && cactus != null && bird != null) {
     //get is dinosaur jumping
     let dinoTop = parseInt(
-      window.getComputedStyle(dino).getPropertyValue("top")
+      window.getComputedStyle(dino).getPropertyValue("top"),
     );
 
     //get cactus position
     let cactusleft = parseInt(
-      window.getComputedStyle(cactus).getPropertyValue("left")
+      window.getComputedStyle(cactus).getPropertyValue("left"),
     );
 
     //get bird position
     let birdleft = parseInt(
-      window.getComputedStyle(bird).getPropertyValue("left")
+      window.getComputedStyle(bird).getPropertyValue("left"),
     );
 
-    console.log(cactus?.style.animationDuration);
-
     //detect cactus collision and detect bird collision
-    if ((dinoTop >= 150 && Math.abs(cactusleft) < 7) ||(dinoTop <= 55 && Math.abs(birdleft) < 11)) {
+    if (
+      (dinoTop >= 150 && Math.abs(cactusleft) < 7) ||
+      (dinoTop <= 55 && Math.abs(birdleft) < 11)
+    ) {
       //end game
       console.log("player died!");
       SetText("Final Score: " + score + "! Click To Play Again!");
